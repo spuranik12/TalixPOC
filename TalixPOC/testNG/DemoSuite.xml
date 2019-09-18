@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Demo suite 1" verbose="5">
+	<listeners>
+        <listener class-name="automation.enboard.common.AnnotationTransformer"/>
+    </listeners>
+  	<test name="Demo test 1" >
+	    <classes>
+	      <class name="automation.enboard.tests.LoginPageTest"/>
+	      <class name="automation.enboard.tests.PersonalDetailsTest"/>
+	    </classes>
+ 	</test>
+</suite>
