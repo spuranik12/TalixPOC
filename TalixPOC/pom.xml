@@ -1,11 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>Enboard</groupId>
-	<artifactId>Enboard</artifactId>
+	<groupId>TalixPOC</groupId>
+	<artifactId>TalixPOC</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Enboard</name>
-	<description>Enboard</description>
+	<name>TalixPOC</name>
 	<properties>
 		<aspectj.version>1.8.10</aspectj.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -120,4 +119,5 @@
 		      <version>0.0.26</version>
 	     </dependency>
 	</dependencies>
+	<description>TalixPOC</description>
 </project>
