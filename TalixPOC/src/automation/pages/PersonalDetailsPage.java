@@ -1,4 +1,4 @@
-package automation.talixPoc.pages;
+package automation.pages;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,8 +12,8 @@ import org.testng.Reporter;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-import automation.talixPoc.common.AutoLogger;
-import automation.talixPoc.common.BasePage;
+import automation.common.AutoLogger;
+import automation.common.BasePage;
 
 public class PersonalDetailsPage extends BasePage{
 

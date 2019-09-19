@@ -1,4 +1,4 @@
-package automation.talixPoc.utilities;
+package automation.utilities;
 
 import br.eti.kinoshita.testlinkjavaapi.util.TestLinkAPIException;
 /*import testlink.api.java.client.TestLinkAPIClient;

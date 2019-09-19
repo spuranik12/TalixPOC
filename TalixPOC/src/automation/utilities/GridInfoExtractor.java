@@ -1,4 +1,4 @@
-package automation.talixPoc.utilities;
+package automation.utilities;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package automation.talixPoc.common;
+package automation.common;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;

@@ -1,6 +1,7 @@
-package automation.talixPoc.pages;
+package automation.pages;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.WebDriver;
@@ -12,20 +13,17 @@ import org.testng.Reporter;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-import automation.talixPoc.common.AutoLogger;
-import automation.talixPoc.common.BasePage;
+import automation.common.AutoLogger;
+import automation.common.BasePage;
 
 public class HomePage extends BasePage{
 	
 	@FindBy(css = "#worklistSelect")
 	WebElement worklists;
 	
-	@FindBy(xpath = "//a[@title='DEMO-LN-1']")
-	WebElement patientRecord;
-	
-	@FindBy(css = "[class='patient-name ng-binding']")
-	WebElement patientName;
-	
+	@FindBy(xpath = "//tbody[@id='patientListBody']//tr")
+	List<WebElement> patientRecords;
+		
 	public HomePage(WebDriver driver, AutoLogger handler){
 		super(driver);
 		PageFactory.initElements(driver, this);
@@ -38,31 +36,36 @@ public class HomePage extends BasePage{
 		Thread.sleep(1000);
 		actions.selectDropdownByVisibleText(worklists, workListDetails.get("workListName"));
 		Thread.sleep(1000);
-		Reporter.log("Step 1: Worklist selected from drop down: "+workListDetails.get("workListName"));
-		child.log(LogStatus.INFO,"Step 1: Worklist selected: "+workListDetails.get("workListName"));
+		Reporter.log("Step 4 : Worklist selected from drop down: "+workListDetails.get("workListName"));
+		child.log(LogStatus.INFO,"Step 4 : Worklist selected: "+workListDetails.get("workListName"));
 	}
 	
 	public HashMap<String, String> getDetails() throws InterruptedException
 	{
 		Thread.sleep(1000);
-		HashMap<String, String> worklistDetails = new HashMap<String, String>();
-		worklistDetails.put("workListName", "ClaimsTest (D)");
+		HashMap<String, String> details = new HashMap<String, String>();
+		details.put("workListName", "ClaimsTest (D)");
+		details.put("patientName", "DEMO-LN-1");
 		Thread.sleep(1000);
-		return worklistDetails;
+		return details;
 	}
 	
-	public boolean verifyPatientDashboard() throws InterruptedException
+	public void clickOnPatientInWorklist(Map<String, String> patientDetails,ExtentTest child) throws InterruptedException
 	{
 		Thread.sleep(1000);
-		actions.isWebelementVisible(patientName);
-		return true;
-	}
-	
-	public void clickOnPatientInWorklist(ExtentTest child) throws InterruptedException
-	{
-		Thread.sleep(1000);
-		patientRecord.click();
-		child.log(LogStatus.INFO,"Step 2 : Clicked on patient.");
-		Thread.sleep(2000);
+		int count = patientRecords.size();
+		for(int i=0; i<count; i++)
+		{
+			String text = patientRecords.get(i).getText();
+			if(text.contains(patientDetails.get("patientName")))
+			{
+				
+				patientRecords.get(i).click();
+				child.log(LogStatus.INFO,"Step 5 : Clicked on patient.");
+				Thread.sleep(2000);	
+			}
+			
+		}
+		
 	}
 }

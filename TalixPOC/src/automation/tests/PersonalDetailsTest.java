@@ -1,4 +1,4 @@
-package automation.talixPoc.tests;
+package automation.tests;
 
 import java.util.Map;
 
@@ -6,9 +6,9 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import automation.talixPoc.common.BaseTest;
-import automation.talixPoc.pages.LoginPage;
-import automation.talixPoc.pages.PersonalDetailsPage;
+import automation.common.BaseTest;
+import automation.pages.LoginPage;
+import automation.pages.PersonalDetailsPage;
 
 public class PersonalDetailsTest extends BaseTest{
 	

@@ -1,4 +1,4 @@
-package automation.talixPoc.tests;
+package automation.tests;
 
 import java.util.Map;
 
@@ -6,9 +6,9 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import automation.talixPoc.common.BaseTest;
-import automation.talixPoc.pages.HomePage;
-import automation.talixPoc.pages.LoginPage;
+import automation.common.BaseTest;
+import automation.pages.HomePage;
+import automation.pages.LoginPage;
 
 public class HomePageTest extends BaseTest{
 	HomePage homePage;
@@ -19,10 +19,10 @@ public class HomePageTest extends BaseTest{
 	}
 	
 	@Test
-	public void openWorkList() throws InterruptedException
+	public void openWorkListAndRedirectToPatientDashboard() throws InterruptedException
 	{
 		//Arrangement
-		child = report.startTest("Verify worklist selection in worklists drop down");
+		child = report.startTest("Verify worklists & redirect to patient dashboard for selected worklist");
 		parent.appendChild(child);
 		new LoginPage(eventDriver, handler).login(properties.getProperty("username"), properties.getProperty("password"),child);
 		homePage = new HomePage(eventDriver, handler);
@@ -31,9 +31,9 @@ public class HomePageTest extends BaseTest{
 		//Act
 		Map<String, String> lists = homePage.getDetails();
 		homePage.openWorklist(lists, child);
-		homePage.clickOnPatientInWorklist(child);
+		homePage.clickOnPatientInWorklist(lists, child);
 		
 		//Assert
-		Assert.assertTrue(homePage.verifyPatientDashboard());	
+		//Assert.assertTrue(homePage.clickOnPatientInWorklist(lists, child));	
 	}
 }

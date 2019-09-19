@@ -1,4 +1,4 @@
-package automation.talixPoc.pages;
+package automation.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,8 +9,8 @@ import org.testng.Reporter;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-import automation.talixPoc.common.AutoLogger;
-import automation.talixPoc.common.BasePage;
+import automation.common.AutoLogger;
+import automation.common.BasePage;
 
 public class LoginPage extends BasePage {
 	
@@ -24,7 +24,7 @@ public class LoginPage extends BasePage {
 	WebElement loginBtn;
 	
 	@FindBy(linkText = "Worklist")
-	WebElement loggedInUser;
+	WebElement worklistsLink;
 	
 	public LoginPage(WebDriver driver, AutoLogger handler){
 		super(driver);
@@ -37,8 +37,8 @@ public class LoginPage extends BasePage {
 		Thread.sleep(1000);
 		actions.sendKeys(this.username, username);
 		Thread.sleep(1000);
-		Reporter.log("Step 1: UserName enterd: "+username);
-		child.log(LogStatus.INFO,"Step 1: UserName enterd: "+username);
+		Reporter.log("Step 1 : UserName enterd: "+username);
+		child.log(LogStatus.INFO,"Step 1 : UserName enterd: "+username);
 		actions.sendKeys(this.password, password);
 		Thread.sleep(1000);
 		Reporter.log("Step 1: Password enterd: "+password);
@@ -50,6 +50,6 @@ public class LoginPage extends BasePage {
 	
 	public boolean isUserLoggedIn() throws InterruptedException{
 		Thread.sleep(3000);
-		return actions.isDisplayed(loggedInUser);
+		return actions.isDisplayed(worklistsLink);
 	}
 }

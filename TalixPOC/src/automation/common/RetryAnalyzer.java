@@ -1,4 +1,4 @@
-package automation.talixPoc.common;
+package automation.common;
 
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
