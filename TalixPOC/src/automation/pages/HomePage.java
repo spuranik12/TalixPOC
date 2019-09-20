@@ -23,6 +23,9 @@ public class HomePage extends BasePage{
 	
 	@FindBy(xpath = "//tbody[@id='patientListBody']//tr")
 	List<WebElement> patientRecords;
+	
+	@FindBy(linkText = "DEMO-LN-1")
+	WebElement patientRecord;
 		
 	public HomePage(WebDriver driver, AutoLogger handler){
 		super(driver);
@@ -53,7 +56,7 @@ public class HomePage extends BasePage{
 	public void clickOnPatientInWorklist(Map<String, String> patientDetails,ExtentTest child) throws InterruptedException
 	{
 		Thread.sleep(1000);
-		int count = patientRecords.size();
+		/*int count = patientRecords.size();
 		for(int i=0; i<count; i++)
 		{
 			String text = patientRecords.get(i).getText();
@@ -65,7 +68,10 @@ public class HomePage extends BasePage{
 				Thread.sleep(2000);	
 			}
 			
-		}
+		}*/
 		
+		patientRecord.click();
+		child.log(LogStatus.INFO,"Step 5 : Clicked on patient.");
+		Thread.sleep(2000);	
 	}
 }

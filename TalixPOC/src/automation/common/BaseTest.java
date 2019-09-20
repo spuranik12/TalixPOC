@@ -180,7 +180,7 @@ public class BaseTest {
 		} else {
 			child.log(LogStatus.PASS, "Test passed");
 		}
-		//quitBrowser();
+		quitBrowser();
 		report.endTest(child);
 	}
 

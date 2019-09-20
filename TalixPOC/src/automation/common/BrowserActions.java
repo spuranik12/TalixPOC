@@ -156,5 +156,4 @@ public class BrowserActions {
 		Actions action = new Actions(driver);
 		action.moveToElement(element).click().perform();
 	}
-	
 }
